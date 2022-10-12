@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import Constants from "expo-constants";
+import { View, StyleSheet } from "react-native";
 import * as Location from "expo-location";
 // You can import from local files
 import * as TaskManager from "expo-task-manager";
