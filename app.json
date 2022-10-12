@@ -18,13 +18,26 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tcsoccer2000.expolocationinfiniteloop",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "App requires geolocation to improve the quality of the service",
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.tcsoccer2000.expolocationinfiniteloop"
     },
     "web": {
       "favicon": "./assets/favicon.png"
