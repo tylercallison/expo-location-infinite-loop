@@ -21,34 +21,32 @@ TaskManager.defineTask(locTaskName, ({ data, error }) => {
 });
 
 export default function App() {
-  async function startLocationTracking() {
+  const startLocationTracking = async () => {
     const foreground = await Location.requestForegroundPermissionsAsync();
     if (foreground.status !== "granted") {
       return;
     }
 
-    if (await Location.hasStartedLocationUpdatesAsync(locTaskName)) {
-      await Location.stopLocationUpdatesAsync(locTaskName);
-    }
+    // if (await Location.hasStartedLocationUpdatesAsync(locTaskName)) {
+    //   await Location.stopLocationUpdatesAsync(locTaskName);
+    // }
 
-    Location.startLocationUpdatesAsync(locTaskName, {
-      accuracy: Location.Accuracy.Highest,
-      distanceInterval: 5,
-    });
-  }
-
+    Location.startLocationUpdatesAsync(locTaskName);
+  };
   React.useEffect(() => {
-    startLocationTracking();
+    (async () => {
+      await startLocationTracking();
+    })();
   }, []);
 
   return (
     <View style={styles.container}>
       <MapView
         style={styles.container}
-        followsUserLocation={true}
+        // followsUserLocation={true}
         showsUserLocation={true}
-        showsCompass={false}
-        showsMyLocationButton={false}
+        // showsCompass={false}
+        // showsMyLocationButton={false}
       />
     </View>
   );
